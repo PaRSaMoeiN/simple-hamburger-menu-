@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <style type="text/css" media="all">
+/* استایل اصلی هدر */
+header {
+    background: rgba(255, 152, 0, 0.9); /* تم نارنجی */
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+    border-radius: 15px;
+   
+}
+
+/* منو */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border-radius: 15px;
+}
+
+nav ul li {
+    margin: 0 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 15px 25px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: #fff;
+    color: #FF9800;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* استایل منوی موبایل */
+@media (max-width: 768px) {
+    header{
+         padding-right: 40px;
+    }
+    nav ul {
+        flex-direction: column;
+        background: rgba(255, 152, 0, 0.95);
+        position: relative;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+    }
+
+    nav ul.show {
+        max-height: 350px; /* ارتفاع منو زمانی که باز است */
+    }
+
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: absolute;
+        top: 42px;
+        right: 20px;
+        z-index: 1001;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 4px 0;
+        transition: all 0.3s ease;
+        border-radius: 15px;
+    }
+        /* تغییر شکل دکمه همبرگر */
+    .menu-toggle.open span:nth-child(1) {
+        transform: rotate(45deg);
+        position: relative;
+        top: 6px;
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg);
+        position: relative;
+        top: -6px;
+    }
+}    
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منوی همبرگری</title>
+    
+    
+</head>
+<body>
+    <header>
+        <h1>منو همبرگری حرفه ای </h1>
+        <nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#about">درباره ما</a></li>
+                <li><a href="#services">خدمات</a></li>
+                <li><a href="#products">محصولات</a></li>
+                <li><a href="#contact">تماس با ما</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+<!--<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('nav ul');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
+</script>-->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('nav ul');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuToggle.classList.toggle('open'); // تغییر وضعیت دکمه همبرگری
+        });
+    </script>
+</html>
